@@ -48,8 +48,20 @@ pdf-seblak-bombom:
 		"file://$(shell pwd)/portfolio-seblak-bombom-app.html" 2>/dev/null
 	@echo "Done! PDF saved as portfolio-seblak-bombom-app.pdf"
 
+# Generate PDF from Portfolio Stone Store Company Profile HTML
+pdf-stone-store:
+	@echo "Generating Portfolio Stone Store Company Profile PDF..."
+	@/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+		--headless \
+		--disable-gpu \
+		--print-to-pdf="portfolio-stone-store-company-profile.pdf" \
+		--no-margins \
+		--print-to-pdf-no-header \
+		"file://$(shell pwd)/portfolio-stone-store-company-profile.html" 2>/dev/null
+	@echo "Done! PDF saved as portfolio-stone-store-company-profile.pdf"
+
 # Generate all PDFs
-pdf-all: pdf pdf-portfolio pdf-z-health-queue pdf-seblak-bombom
+pdf-all: pdf pdf-portfolio pdf-z-health-queue pdf-seblak-bombom pdf-stone-store
 	@echo "All PDFs generated!"
 
 # Clean generated CV PDF
@@ -59,5 +71,5 @@ clean:
 
 # Clean all generated PDFs
 clean-all:
-	@rm -f my-cv.pdf portfolio-coretest.pdf portfolio-z-health-queue-app.pdf portfolio-seblak-bombom-app.pdf
+	@rm -f my-cv.pdf portfolio-coretest.pdf portfolio-z-health-queue-app.pdf portfolio-seblak-bombom-app.pdf portfolio-stone-store-company-profile.pdf
 	@echo "Cleaned all PDFs"

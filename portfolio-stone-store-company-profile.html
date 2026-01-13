@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Stone Store Company Profile | Fauzan Nur Hidayat</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .page-container {
+            width: 794px;
+            height: 1123px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            overflow: hidden;
+            padding: 20px 25px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #2563eb;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.3);
+            color: #60a5fa;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .header h1 span {
+            color: #2563eb;
+        }
+        
+        .header-subtitle {
+            font-size: 10px;
+            color: #aaa;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+        }
+        
+        .section-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Overview */
+        .overview-text {
+            font-size: 9px;
+            color: #ccc;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        /* Two Column Row */
+        .two-column-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .two-column-row .section {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(37, 99, 235, 0.2);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: #2563eb;
+        }
+        
+        .feature-content h4 {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        
+        .feature-content p {
+            font-size: 7.5px;
+            color: #aaa;
+            line-height: 1.3;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tech-tag {
+            background: rgba(37, 99, 235, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 8px;
+            font-weight: 500;
+        }
+        
+        .tech-tag span {
+            color: #60a5fa;
+            font-size: 7px;
+            margin-left: 4px;
+        }
+        
+        /* Architecture */
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .arch-item {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 6px;
+            padding: 8px 14px;
+            text-align: center;
+        }
+        
+        .arch-item-title {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .arch-item-desc {
+            font-size: 7px;
+            color: #aaa;
+        }
+        
+        .arch-arrow {
+            color: #2563eb;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        /* Screenshots */
+        .screenshots-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .screenshot-item {
+            flex: 1;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 6px 8px;
+            text-align: center;
+        }
+        
+        .screenshot-caption h4 {
+            font-size: 8px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer p {
+            font-size: 8px;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page-container {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <div class="header">
+            <span class="project-badge">Company Profile Website</span>
+            <h1>Stone Store <span>Company Profile</span></h1>
+            <p class="header-subtitle">Marketing Website for Natural Stone Products - Interior & Exterior Building Materials</p>
+        </div>
+        
+        <!-- Overview -->
+        <div class="section">
+            <h2 class="section-title">Project Overview</h2>
+            <p class="overview-text">
+                <strong>Stone Store Company Profile</strong> adalah website company profile yang dirancang untuk membantu pemasaran produk batu alam yang digunakan untuk interior dan eksterior bangunan/rumah. Website ini menampilkan katalog produk batu alam dengan berbagai jenis dan ukuran, informasi perusahaan, galeri proyek yang telah dikerjakan, serta formulir kontak untuk memudahkan calon pelanggan menghubungi perusahaan. Desain website dibuat elegan dan profesional untuk mencerminkan kualitas produk premium batu alam.
+            </p>
+        </div>
+        
+        <!-- Features & Tech Stack -->
+        <div class="two-column-row">
+            <div class="section">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Product Catalog</h4>
+                            <p>Katalog batu alam lengkap</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Project Gallery</h4>
+                            <p>Galeri proyek yang dikerjakan</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Company Info</h4>
+                            <p>Profil & informasi perusahaan</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Contact Form</h4>
+                            <p>Formulir kontak pelanggan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Tech Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-tag">PHP <span>Backend</span></div>
+                    <div class="tech-tag">CodeIgniter <span>Framework</span></div>
+                    <div class="tech-tag">MySQL <span>Database</span></div>
+                    <div class="tech-tag">Bootstrap 5 <span>UI Framework</span></div>
+                    <div class="tech-tag">HTML <span>Markup</span></div>
+                    <div class="tech-tag">CSS <span>Styling</span></div>
+                    <div class="tech-tag">JavaScript <span>Programming</span></div>
+                    <div class="tech-tag">jQuery <span>Library</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- System Architecture -->
+        <div class="section">
+            <h2 class="section-title">System Architecture</h2>
+            <div class="arch-flow">
+                <div class="arch-item">
+                    <div class="arch-item-title">Browser</div>
+                    <div class="arch-item-desc">Client</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">Bootstrap 5</div>
+                    <div class="arch-item-desc">Frontend</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">CodeIgniter</div>
+                    <div class="arch-item-desc">PHP Framework</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">MySQL</div>
+                    <div class="arch-item-desc">Database</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screenshots -->
+        <div class="section">
+            <h2 class="section-title">Screenshots</h2>
+            <div class="screenshots-row">
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/stone-store-company-profile/stone-store-1.png" alt="Homepage">
+                    <div class="screenshot-caption"><h4>Homepage</h4></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/stone-store-company-profile/stone-store-2.png" alt="Product Catalog">
+                    <div class="screenshot-caption"><h4>Product Catalog</h4></div>
+                </div>
+            </div>
+            <div class="screenshots-row">
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/stone-store-company-profile/stone-store-3.png" alt="Gallery">
+                    <div class="screenshot-caption"><h4>Project Gallery</h4></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/stone-store-company-profile/stone-store-4.png" alt="Contact">
+                    <div class="screenshot-caption"><h4>Contact Page</h4></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Fauzan Nur Hidayat | <a href="https://personal.fznh-dev.my.id">personal.fznh-dev.my.id</a> | <a href="https://github.com/fauzan05">github.com/fauzan05</a></p>
+        </div>
+    </div>
+</body>
+</html>
