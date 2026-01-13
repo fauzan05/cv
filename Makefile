@@ -1,8 +1,8 @@
-.PHONY: pdf clean
+.PHONY: pdf pdf-portfolio clean clean-all
 
 # Generate PDF from HTML CV using Chrome headless
 pdf:
-	@echo "Generating PDF..."
+	@echo "Generating CV PDF..."
 	@/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
 		--headless \
 		--disable-gpu \
@@ -12,7 +12,28 @@ pdf:
 		"file://$(shell pwd)/my-cv.html" 2>/dev/null
 	@echo "Done! PDF saved as my-cv.pdf"
 
-# Clean generated PDF
+# Generate PDF from Portfolio Coretest HTML
+pdf-portfolio:
+	@echo "Generating Portfolio Coretest PDF..."
+	@/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+		--headless \
+		--disable-gpu \
+		--print-to-pdf="portfolio-coretest.pdf" \
+		--no-margins \
+		--print-to-pdf-no-header \
+		"file://$(shell pwd)/portfolio-coretest.html" 2>/dev/null
+	@echo "Done! PDF saved as portfolio-coretest.pdf"
+
+# Generate all PDFs
+pdf-all: pdf pdf-portfolio
+	@echo "All PDFs generated!"
+
+# Clean generated CV PDF
 clean:
 	@rm -f my-cv.pdf
 	@echo "Cleaned my-cv.pdf"
+
+# Clean all generated PDFs
+clean-all:
+	@rm -f my-cv.pdf portfolio-coretest.pdf
+	@echo "Cleaned all PDFs"
