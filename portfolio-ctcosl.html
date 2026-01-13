@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - CT-COSL | Fauzan Nur Hidayat</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .page-container {
+            width: 794px;
+            height: 1123px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            overflow: hidden;
+            padding: 20px 25px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #2563eb;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.3);
+            color: #60a5fa;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .header h1 span {
+            color: #2563eb;
+        }
+        
+        .header-subtitle {
+            font-size: 10px;
+            color: #aaa;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+        }
+        
+        .section-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Overview */
+        .overview-text {
+            font-size: 9px;
+            color: #ccc;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        /* Two Column Row */
+        .two-column-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .two-column-row .section {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(37, 99, 235, 0.2);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: #2563eb;
+        }
+        
+        .feature-content h4 {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        
+        .feature-content p {
+            font-size: 7.5px;
+            color: #aaa;
+            line-height: 1.3;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tech-tag {
+            background: rgba(37, 99, 235, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 8px;
+            font-weight: 500;
+        }
+        
+        .tech-tag span {
+            color: #60a5fa;
+            font-size: 7px;
+            margin-left: 4px;
+        }
+        
+        /* Architecture */
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .arch-item {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 6px;
+            padding: 8px 14px;
+            text-align: center;
+        }
+        
+        .arch-item-title {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .arch-item-desc {
+            font-size: 7px;
+            color: #aaa;
+        }
+        
+        .arch-arrow {
+            color: #2563eb;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        /* Screenshots */
+        .screenshots-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .screenshot-item {
+            flex: 1;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 6px 8px;
+            text-align: center;
+        }
+        
+        .screenshot-caption h4 {
+            font-size: 8px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer p {
+            font-size: 8px;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page-container {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <div class="header">
+            <span class="project-badge">Web Application</span>
+            <h1>CT-<span>COSL</span></h1>
+            <p class="header-subtitle">Coiled Tubing Management System - Admin Dashboard for Oil & Gas Operations</p>
+        </div>
+        
+        <!-- Overview -->
+        <div class="section">
+            <h2 class="section-title">Project Overview</h2>
+            <p class="overview-text">
+                <strong>CT-COSL (COSL Coiled Tubing Management System)</strong> adalah admin dashboard berbasis web profesional yang dibangun dengan Laravel 12 dan Vue.js 3, dirancang khusus untuk mengelola operasi coiled tubing di industri oil & gas. Aplikasi ini menyediakan tools komprehensif untuk inventory management, job tracking, dokumentasi teknis, reporting, dan user administration. Project ini melayani operasi <strong>COSL (China Oilfield Services Limited)</strong>, menawarkan platform terintegrasi untuk mengelola konfigurasi toolstring, wellstack assemblies, thread specifications, dan dokumentasi operasional.
+            </p>
+        </div>
+        
+        <!-- Features & Tech Stack -->
+        <div class="two-column-row">
+            <div class="section">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>User Authentication</h4>
+                            <p>Laravel Auth dengan role & permission</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Inventory Management</h4>
+                            <p>Toolstring, Wellstack & Thread</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Job Tracker</h4>
+                            <p>Tracking job & customer operations</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>PDF Reporting</h4>
+                            <p>Export laporan profesional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Tech Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-tag">Laravel 12 <span>Backend</span></div>
+                    <div class="tech-tag">Vue.js 3 <span>Frontend</span></div>
+                    <div class="tech-tag">PHP 8.2 <span>Language</span></div>
+                    <div class="tech-tag">MySQL <span>Database</span></div>
+                    <div class="tech-tag">Tailwind <span>Styling</span></div>
+                    <div class="tech-tag">Pinia <span>State</span></div>
+                    <div class="tech-tag">Vue Router <span>Routing</span></div>
+                    <div class="tech-tag">Vite <span>Build Tool</span></div>
+                    <div class="tech-tag">Sanctum <span>Auth</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- System Architecture -->
+        <div class="section">
+            <h2 class="section-title">System Architecture</h2>
+            <div class="arch-flow">
+                <div class="arch-item">
+                    <div class="arch-item-title">Vue.js 3</div>
+                    <div class="arch-item-desc">Frontend</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">Pinia</div>
+                    <div class="arch-item-desc">State</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">REST API</div>
+                    <div class="arch-item-desc">HTTP</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">Laravel 12</div>
+                    <div class="arch-item-desc">Backend</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">MySQL</div>
+                    <div class="arch-item-desc">Database</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screenshots -->
+        <div class="section">
+            <h2 class="section-title">Screenshots</h2>
+            <div class="screenshots-row">
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/ctcosl/ctcosl-1.png" alt="Dashboard">
+                    <div class="screenshot-caption"><h4>Dashboard Home</h4></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/ctcosl/ctcosl-2.png" alt="Thread">
+                    <div class="screenshot-caption"><h4>Thread Management</h4></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/ctcosl/ctcosl-3.png" alt="Reporting">
+                    <div class="screenshot-caption"><h4>Reporting</h4></div>
+                </div>
+            </div>
+            <div class="screenshots-row">
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/ctcosl/ctcosl-4.png" alt="Wellstack">
+                    <div class="screenshot-caption"><h4>Wellstack Inventory</h4></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/ctcosl/ctcosl-5.png" alt="Job Tracker">
+                    <div class="screenshot-caption"><h4>Job Tracker</h4></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Fauzan Nur Hidayat | <a href="https://personal.fznh-dev.my.id">personal.fznh-dev.my.id</a> | <a href="https://github.com/fauzan05">github.com/fauzan05</a></p>
+        </div>
+    </div>
+</body>
+</html>
