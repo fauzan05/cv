@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Z Health Queue | Fauzan Nur Hidayat</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .page-container {
+            width: 794px;
+            height: 1123px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            overflow: hidden;
+            padding: 20px 25px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #10b981;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.3);
+            color: #34d399;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .header h1 span {
+            color: #10b981;
+        }
+        
+        .header-subtitle {
+            font-size: 10px;
+            color: #aaa;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+        }
+        
+        .section-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #10b981;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        /* Overview */
+        .overview-text {
+            font-size: 9px;
+            color: #ccc;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        /* Two Column Row */
+        .two-column-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .two-column-row .section {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(16, 185, 129, 0.2);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: #10b981;
+        }
+        
+        .feature-content h4 {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        
+        .feature-content p {
+            font-size: 7.5px;
+            color: #aaa;
+            line-height: 1.3;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tech-tag {
+            background: rgba(16, 185, 129, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 8px;
+            font-weight: 500;
+        }
+        
+        .tech-tag span {
+            color: #34d399;
+            font-size: 7px;
+            margin-left: 4px;
+        }
+        
+        /* Architecture */
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .arch-item {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 6px;
+            padding: 8px 14px;
+            text-align: center;
+        }
+        
+        .arch-item-title {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .arch-item-desc {
+            font-size: 7px;
+            color: #aaa;
+        }
+        
+        .arch-arrow {
+            color: #10b981;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        /* Screenshots */
+        .screenshots-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .screenshot-item {
+            flex: 1;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 6px 8px;
+            text-align: center;
+        }
+        
+        .screenshot-caption h4 {
+            font-size: 8px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer p {
+            font-size: 8px;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #10b981;
+            text-decoration: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page-container {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <div class="header">
+            <span class="project-badge">Healthcare Web Application</span>
+            <h1>Z Health <span>Queue</span></h1>
+            <p class="header-subtitle">Smart Healthcare Queue Management System - Real-time Queue Tracking via QR Code Scan</p>
+        </div>
+        
+        <!-- Overview -->
+        <div class="section">
+            <h2 class="section-title">Project Overview</h2>
+            <p class="overview-text">
+                <strong>Z Health Queue</strong> adalah sistem manajemen antrian kesehatan berbasis web yang memungkinkan pengunjung untuk memantau status antrian mereka secara real-time melalui smartphone. Dengan hanya melakukan scan QR Code pada struk antrian, pengunjung dapat melihat posisi antrian, estimasi waktu tunggu, dan notifikasi ketika giliran mereka tiba. Sistem ini dirancang untuk meningkatkan efisiensi pelayanan kesehatan dan memberikan kenyamanan bagi pasien tanpa harus menunggu di tempat.
+            </p>
+        </div>
+        
+        <!-- Features & Tech Stack -->
+        <div class="two-column-row">
+            <div class="section">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zm8-2v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zm13 2h-2v2h2v2h2v-2h2v-2h-2v-2h-2v2zm0-8h2v4h-2v-4zm-4 8h2v4h-2v-4z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>QR Code Scanning</h4>
+                            <p>Scan struk untuk cek status antrian</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Real-time Tracking</h4>
+                            <p>Pantau posisi antrian secara live</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Queue Notification</h4>
+                            <p>Notifikasi saat giliran tiba</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Mobile Friendly</h4>
+                            <p>Responsive design untuk smartphone</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Tech Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-tag">Laravel <span>Backend</span></div>
+                    <div class="tech-tag">Vue.js <span>Frontend</span></div>
+                    <div class="tech-tag">Inertia.js <span>Bridge</span></div>
+                    <div class="tech-tag">MySQL <span>Database</span></div>
+                    <div class="tech-tag">Tailwind CSS <span>Styling</span></div>
+                    <div class="tech-tag">HTML <span>Markup</span></div>
+                    <div class="tech-tag">CSS <span>Styling</span></div>
+                    <div class="tech-tag">JavaScript <span>Programming</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- System Architecture -->
+        <div class="section">
+            <h2 class="section-title">System Architecture</h2>
+            <div class="arch-flow">
+                <div class="arch-item">
+                    <div class="arch-item-title">QR Scan</div>
+                    <div class="arch-item-desc">Mobile</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">Vue.js</div>
+                    <div class="arch-item-desc">Frontend</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">Inertia</div>
+                    <div class="arch-item-desc">Bridge</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">Laravel</div>
+                    <div class="arch-item-desc">Backend</div>
+                </div>
+                <span class="arch-arrow">→</span>
+                <div class="arch-item">
+                    <div class="arch-item-title">MySQL</div>
+                    <div class="arch-item-desc">Database</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screenshots -->
+        <div class="section">
+            <h2 class="section-title">Screenshots</h2>
+            <div class="screenshots-row">
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/z-health-queue/z-health-queue-app-1.png" alt="Dashboard">
+                    <div class="screenshot-caption"><h4>Queue Display</h4></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/z-health-queue/z-health-queue-app-2.png" alt="Queue Management">
+                    <div class="screenshot-caption"><h4>Queue Tenant Management</h4></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/z-health-queue/z-health-queue-app-3.png" alt="QR Code">
+                    <div class="screenshot-caption"><h4>Admin Dashboard</h4></div>
+                </div>
+            </div>
+            <div class="screenshots-row">
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/z-health-queue/z-health-queue-app-4.png" alt="Mobile View">
+                    <div class="screenshot-caption"><h4>Services Menu</h4></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/z-health-queue/z-health-queue-app-5.png" alt="Display">
+                    <div class="screenshot-caption"><h4>Customer Display Tracking</h4></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Fauzan Nur Hidayat | <a href="https://personal.fznh-dev.my.id">personal.fznh-dev.my.id</a> | <a href="https://github.com/fauzan05">github.com/fauzan05</a></p>
+        </div>
+    </div>
+</body>
+</html>
