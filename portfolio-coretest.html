@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Coretest | Fauzan Nur Hidayat</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 9px;
+            line-height: 1.3;
+            color: #333;
+            background: #f0f0f0;
+        }
+        
+        .page-container {
+            width: 794px;
+            height: 1123px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            overflow: hidden;
+            padding: 25px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 18px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #2563eb;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.3);
+            color: #60a5fa;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        
+        .header h1 span {
+            color: #2563eb;
+        }
+        
+        .header-subtitle {
+            font-size: 10px;
+            color: #aaa;
+        }
+        
+        /* Two Column Layout */
+        .content-wrapper {
+            display: flex;
+            gap: 18px;
+        }
+        
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .right-column {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 14px;
+        }
+        
+        .section-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Overview */
+        .overview-text {
+            font-size: 8.5px;
+            color: #ccc;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(37, 99, 235, 0.2);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: #2563eb;
+        }
+        
+        .feature-content h4 {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        
+        .feature-content p {
+            font-size: 7.5px;
+            color: #aaa;
+            line-height: 1.3;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tech-tag {
+            background: rgba(37, 99, 235, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 8px;
+            font-weight: 500;
+        }
+        
+        .tech-tag span {
+            color: #60a5fa;
+            font-size: 7px;
+            margin-left: 4px;
+        }
+        
+        /* Architecture */
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .arch-item {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 6px;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        
+        .arch-item-title {
+            font-size: 8px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .arch-item-desc {
+            font-size: 6.5px;
+            color: #aaa;
+        }
+        
+        .arch-arrow {
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* Screenshots */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .screenshot-item {
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .screenshot-caption {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 6px 8px;
+        }
+        
+        .screenshot-caption h4 {
+            font-size: 7.5px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .screenshot-item.large {
+            grid-column: span 2;
+        }
+        
+        .screenshot-item.large img {
+            height: 130px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 12px;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer p {
+            font-size: 7.5px;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page-container {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <div class="header">
+            <span class="project-badge">IoT & Web Application</span>
+            <h1>Core<span>test</span></h1>
+            <p class="header-subtitle">PLN Safety Garment Testing System - Real-time Resistance Measurement Web Application</p>
+        </div>
+        
+        <!-- Content -->
+        <div class="content-wrapper">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Overview -->
+                <div class="section">
+                    <h2 class="section-title">Project Overview</h2>
+                    <p class="overview-text">
+                        <strong>Coretest</strong> adalah sistem pengujian baju safety PLN berbasis web untuk menentukan kelayakan penggunaan baju pelindung berdasarkan nilai resistansi. Sistem ini mengintegrasikan hardware pengujian dengan platform web, memungkinkan pengukuran resistansi dilakukan secara real-time dan hasilnya langsung tersimpan di server. Baju safety PLN yang memiliki nilai resistansi sesuai standar akan dinyatakan layak pakai, sedangkan yang tidak memenuhi standar akan ditandai sebagai tidak layak. Hal ini sangat penting untuk menjaga keselamatan pekerja PLN saat bekerja dengan peralatan listrik tegangan tinggi.
+                    </p>
+                </div>
+                
+                <!-- Key Features -->
+                <div class="section">
+                    <h2 class="section-title">Key Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Real-time Measurement</h4>
+                                <p>Pengukuran resistansi real-time via MQTT protocol</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Data Storage</h4>
+                                <p>Penyimpanan data pengukuran di MySQL server</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Compliance Report</h4>
+                                <p>Generate laporan kelayakan baju safety</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Safety Standard</h4>
+                                <p>Validasi standar keselamatan PLN otomatis</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Responsive Dashboard</h4>
+                                <p>Dashboard modern untuk monitoring pengujian</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M7.5 5.6L10 7 8.6 4.5 10 2 7.5 3.4 5 2l1.4 2.5L5 7zm12 9.8L17 14l1.4 2.5L17 19l2.5-1.4L22 19l-1.4-2.5L22 14z"/></svg>
+                            </div>
+                            <div class="feature-content">
+                                <h4>IoT Integration</h4>
+                                <p>Integrasi ESP32 dengan backend via MQTT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- System Architecture -->
+                <div class="section">
+                    <h2 class="section-title">System Architecture</h2>
+                    <div class="arch-flow">
+                        <div class="arch-item">
+                            <div class="arch-item-title">ESP32</div>
+                            <div class="arch-item-desc">Sensor</div>
+                        </div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-item">
+                            <div class="arch-item-title">MQTT</div>
+                            <div class="arch-item-desc">Broker</div>
+                        </div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-item">
+                            <div class="arch-item-title">Golang</div>
+                            <div class="arch-item-desc">Backend</div>
+                        </div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-item">
+                            <div class="arch-item-title">MySQL</div>
+                            <div class="arch-item-desc">Database</div>
+                        </div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-item">
+                            <div class="arch-item-title">Nuxt.js</div>
+                            <div class="arch-item-desc">Frontend</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tech Stack -->
+                <div class="section">
+                    <h2 class="section-title">Tech Stack</h2>
+                    <div class="tech-grid">
+                        <div class="tech-tag">ESP32 <span>IoT</span></div>
+                        <div class="tech-tag">MQTT <span>Protocol</span></div>
+                        <div class="tech-tag">Golang <span>Backend</span></div>
+                        <div class="tech-tag">MySQL <span>Database</span></div>
+                        <div class="tech-tag">Nuxt.js <span>Frontend</span></div>
+                        <div class="tech-tag">Tailwind CSS <span>Styling</span></div>
+                        <div class="tech-tag">HTML <span>Markup</span></div>
+                        <div class="tech-tag">CSS <span>Styling</span></div>
+                        <div class="tech-tag">JavaScript <span>Programming</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Screenshots -->
+            <div class="right-column">
+                <div class="section" style="flex: 1;">
+                    <h2 class="section-title">Screenshots</h2>
+                    <div class="screenshots-grid">
+                        <div class="screenshot-item large">
+                            <img src="project-screenshoots/coretest/coretest-1.png" alt="Dashboard">
+                            <div class="screenshot-caption">
+                                <h4>Dashboard Overview</h4>
+                            </div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="project-screenshoots/coretest/coretest-2.png" alt="Measurement">
+                            <div class="screenshot-caption">
+                                <h4>Measurement Interface</h4>
+                            </div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="project-screenshoots/coretest/coretest-3.png" alt="Report">
+                            <div class="screenshot-caption">
+                                <h4>Report Generation</h4>
+                            </div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="project-screenshoots/coretest/coretest-4.png" alt="Data">
+                            <div class="screenshot-caption">
+                                <h4>Data Management</h4>
+                            </div>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="project-screenshoots/coretest/coretest-5.png" alt="Settings">
+                            <div class="screenshot-caption">
+                                <h4>System Configuration</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Fauzan Nur Hidayat | <a href="https://personal.fznh-dev.my.id">personal.fznh-dev.my.id</a> | <a href="https://github.com/fauzan05">github.com/fauzan05</a></p>
+        </div>
+    </div>
+</body>
+</html>
