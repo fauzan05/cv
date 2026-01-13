@@ -1,4 +1,4 @@
-.PHONY: pdf pdf-portfolio pdf-z-health-queue clean clean-all
+.PHONY: pdf pdf-portfolio pdf-z-health-queue pdf-seblak-bombom clean clean-all
 
 # Generate PDF from HTML CV using Chrome headless
 pdf:
@@ -36,8 +36,20 @@ pdf-z-health-queue:
 		"file://$(shell pwd)/portfolio-z-health-queue-app.html" 2>/dev/null
 	@echo "Done! PDF saved as portfolio-z-health-queue-app.pdf"
 
+# Generate PDF from Portfolio Seblak Bombom HTML
+pdf-seblak-bombom:
+	@echo "Generating Portfolio Seblak Bombom PDF..."
+	@/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+		--headless \
+		--disable-gpu \
+		--print-to-pdf="portfolio-seblak-bombom-app.pdf" \
+		--no-margins \
+		--print-to-pdf-no-header \
+		"file://$(shell pwd)/portfolio-seblak-bombom-app.html" 2>/dev/null
+	@echo "Done! PDF saved as portfolio-seblak-bombom-app.pdf"
+
 # Generate all PDFs
-pdf-all: pdf pdf-portfolio pdf-z-health-queue
+pdf-all: pdf pdf-portfolio pdf-z-health-queue pdf-seblak-bombom
 	@echo "All PDFs generated!"
 
 # Clean generated CV PDF
@@ -47,5 +59,5 @@ clean:
 
 # Clean all generated PDFs
 clean-all:
-	@rm -f my-cv.pdf portfolio-coretest.pdf portfolio-z-health-queue-app.pdf
+	@rm -f my-cv.pdf portfolio-coretest.pdf portfolio-z-health-queue-app.pdf portfolio-seblak-bombom-app.pdf
 	@echo "Cleaned all PDFs"
