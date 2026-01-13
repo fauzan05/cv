@@ -1,4 +1,4 @@
-.PHONY: pdf pdf-portfolio pdf-z-health-queue pdf-seblak-bombom pdf-stone-store pdf-coilmatrixpro pdf-ctcosl pdf-voltrics clean clean-all
+.PHONY: pdf pdf-portfolio pdf-z-health-queue pdf-seblak-bombom pdf-stone-store pdf-coilmatrixpro pdf-ctcosl pdf-voltrics pdf-gocleanarch clean clean-all
 
 # Generate PDF from HTML CV using Chrome headless
 pdf:
@@ -96,8 +96,20 @@ pdf-voltrics:
 		"file://$(shell pwd)/portfolio-voltrics.html" 2>/dev/null
 	@echo "Done! PDF saved as portfolio-voltrics.pdf"
 
+# Generate PDF from Portfolio GoCleanArch HTML
+pdf-gocleanarch:
+	@echo "Generating Portfolio GoCleanArch PDF..."
+	@/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+		--headless \
+		--disable-gpu \
+		--print-to-pdf="portfolio-gocleanarch.pdf" \
+		--no-margins \
+		--print-to-pdf-no-header \
+		"file://$(shell pwd)/portfolio-gocleanarch.html" 2>/dev/null
+	@echo "Done! PDF saved as portfolio-gocleanarch.pdf"
+
 # Generate all PDFs
-pdf-all: pdf pdf-portfolio pdf-z-health-queue pdf-seblak-bombom pdf-stone-store pdf-coilmatrixpro pdf-ctcosl pdf-voltrics
+pdf-all: pdf pdf-portfolio pdf-z-health-queue pdf-seblak-bombom pdf-stone-store pdf-coilmatrixpro pdf-ctcosl pdf-voltrics pdf-gocleanarch
 	@echo "All PDFs generated!"
 
 # Clean generated CV PDF
@@ -107,5 +119,5 @@ clean:
 
 # Clean all generated PDFs
 clean-all:
-	@rm -f my-cv.pdf portfolio-coretest.pdf portfolio-z-health-queue-app.pdf portfolio-seblak-bombom-app.pdf portfolio-stone-store-company-profile.pdf portfolio-coilmatrixpro.pdf portfolio-ctcosl.pdf portfolio-voltrics.pdf
+	@rm -f my-cv.pdf portfolio-coretest.pdf portfolio-z-health-queue-app.pdf portfolio-seblak-bombom-app.pdf portfolio-stone-store-company-profile.pdf portfolio-coilmatrixpro.pdf portfolio-ctcosl.pdf portfolio-voltrics.pdf portfolio-gocleanarch.pdf
 	@echo "Cleaned all PDFs"

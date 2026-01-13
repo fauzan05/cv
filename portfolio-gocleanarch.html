@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Golang Clean Arch SaaS | Fauzan Nur Hidayat</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .page-container {
+            width: 794px;
+            height: 1123px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            overflow: hidden;
+            padding: 20px 25px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #2563eb;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.3);
+            color: #60a5fa;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .header h1 span {
+            color: #2563eb;
+        }
+        
+        .header-subtitle {
+            font-size: 10px;
+            color: #aaa;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+        }
+        
+        .section-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Overview */
+        .overview-text {
+            font-size: 9px;
+            color: #ccc;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        /* Two Column Row */
+        .two-column-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .two-column-row .section {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(37, 99, 235, 0.2);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: #2563eb;
+        }
+        
+        .feature-content h4 {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        
+        .feature-content p {
+            font-size: 7.5px;
+            color: #aaa;
+            line-height: 1.3;
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tech-tag {
+            background: rgba(37, 99, 235, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 8px;
+            font-weight: 500;
+        }
+        
+        .tech-tag span {
+            color: #60a5fa;
+            font-size: 7px;
+            margin-left: 4px;
+        }
+        
+        /* Architecture */
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .arch-item {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 6px;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        
+        .arch-item-title {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .arch-item-desc {
+            font-size: 7px;
+            color: #aaa;
+        }
+        
+        .arch-arrow {
+            color: #2563eb;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Clean Architecture Diagram */
+        .arch-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .arch-layer {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 6px;
+            padding: 8px 20px;
+            text-align: center;
+            width: 80%;
+        }
+
+        .arch-layer-title {
+            font-size: 9px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .arch-layer-desc {
+            font-size: 7px;
+            color: #aaa;
+        }
+
+        .arch-arrow-down {
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* Screenshots */
+        .screenshots-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .screenshot-item {
+            flex: 1;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 6px 8px;
+            text-align: center;
+        }
+        
+        .screenshot-caption h4 {
+            font-size: 8px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 7.5px;
+            color: #60a5fa;
+            line-height: 1.5;
+            overflow: hidden;
+        }
+
+        .code-block .comment {
+            color: #6b7280;
+        }
+
+        .code-block .keyword {
+            color: #f472b6;
+        }
+
+        .code-block .string {
+            color: #34d399;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer p {
+            font-size: 8px;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page-container {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <div class="header">
+            <span class="project-badge">Backend API Template</span>
+            <h1>Golang Clean <span>Architecture</span></h1>
+            <p class="header-subtitle">Production-Ready SaaS Starter Kit - JWT Auth, Multi-Tenancy & Subscription Management</p>
+        </div>
+        
+        <!-- Overview -->
+        <div class="section">
+            <h2 class="section-title">Project Overview</h2>
+            <p class="overview-text">
+                <strong>Golang Clean Architecture SaaS Template</strong> adalah starter kit production-ready untuk membangun aplikasi SaaS dengan Go, mengikuti prinsip Clean Architecture. Template ini menghilangkan kerja boilerplate selama berminggu-minggu dengan menyediakan fitur SaaS esensial secara out-of-the-box: <strong>JWT Authentication</strong> (access & refresh token), <strong>Multi-Tenancy</strong> dengan organization-first design, <strong>Subscription Management</strong> dengan tiered plans, <strong>Email Verification</strong> async, serta <strong>UUID Primary Keys</strong> dan <strong>Soft Delete</strong> untuk database design yang aman dan scalable.
+            </p>
+        </div>
+        
+        <!-- Features & Tech Stack -->
+        <div class="two-column-row">
+            <div class="section">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>JWT Authentication</h4>
+                            <p>Access & Refresh token, email verification</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Multi-Tenancy</h4>
+                            <p>Organization-first dengan RBAC</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Subscription Plans</h4>
+                            <p>Free, Pro, Enterprise tiers</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4>59 Unit Tests</h4>
+                            <p>Comprehensive test coverage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Tech Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-tag">Go 1.23 <span>Language</span></div>
+                    <div class="tech-tag">Fiber v2 <span>Framework</span></div>
+                    <div class="tech-tag">GORM <span>ORM</span></div>
+                    <div class="tech-tag">MySQL 8.0 <span>Database</span></div>
+                    <div class="tech-tag">JWT <span>Auth</span></div>
+                    <div class="tech-tag">Docker <span>Container</span></div>
+                    <div class="tech-tag">Viper <span>Config</span></div>
+                    <div class="tech-tag">Logrus <span>Logging</span></div>
+                    <div class="tech-tag">Testify <span>Testing</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Clean Architecture -->
+        <div class="section">
+            <h2 class="section-title">Clean Architecture Layers</h2>
+            <div class="arch-layers">
+                <div class="arch-layer">
+                    <div class="arch-layer-title">Delivery Layer (HTTP Controllers)</div>
+                    <div class="arch-layer-desc">auth_controller, user_controller, organization_controller, subscription_controller</div>
+                </div>
+                <span class="arch-arrow-down">↓</span>
+                <div class="arch-layer">
+                    <div class="arch-layer-title">Usecase Layer (Business Logic)</div>
+                    <div class="arch-layer-desc">JWT Generation, Email Verification, Role Management, Subscription Logic</div>
+                </div>
+                <span class="arch-arrow-down">↓</span>
+                <div class="arch-layer">
+                    <div class="arch-layer-title">Repository Layer (Data Access)</div>
+                    <div class="arch-layer-desc">GORM Operations, Query Building, Soft Delete Scoping, Transaction Management</div>
+                </div>
+                <span class="arch-arrow-down">↓</span>
+                <div class="arch-layer">
+                    <div class="arch-layer-title">Entity Layer (Domain Models)</div>
+                    <div class="arch-layer-desc">User, Organization, Subscription, Plan - UUID Primary Keys & Soft Delete</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Database Schema & API -->
+        <div class="two-column-row">
+            <div class="section">
+                <h2 class="section-title">Database Schema</h2>
+                <div class="code-block">
+                    <span class="comment">// Core Tables with UUID & Soft Delete</span><br>
+                    <span class="keyword">organizations</span> (id, name, slug, logo_url)<br>
+                    <span class="keyword">users</span> (id, org_id, email, password, verified)<br>
+                    <span class="keyword">organization_members</span> (id, org_id, user_id, role)<br>
+                    <span class="keyword">plans</span> (id, name, price, limits, features)<br>
+                    <span class="keyword">subscriptions</span> (id, org_id, plan_id, status)<br>
+                    <span class="keyword">audit_logs</span> (id, action, resource, old/new_value)
+                </div>
+            </div>
+            <div class="section">
+                <h2 class="section-title">API Endpoints</h2>
+                <div class="code-block">
+                    <span class="comment">// Authentication</span><br>
+                    <span class="keyword">POST</span> <span class="string">/api/v1/auth/register</span><br>
+                    <span class="keyword">POST</span> <span class="string">/api/v1/auth/login</span><br>
+                    <span class="keyword">POST</span> <span class="string">/api/v1/auth/refresh</span><br>
+                    <span class="keyword">POST</span> <span class="string">/api/v1/auth/verify-email</span><br>
+                    <span class="comment">// Protected Routes</span><br>
+                    <span class="keyword">GET</span> <span class="string">/api/v1/users/me</span><br>
+                    <span class="keyword">GET</span> <span class="string">/api/v1/organizations/:id</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Screenshots -->
+        <div class="section">
+            <h2 class="section-title">Project Structure</h2>
+            <div class="screenshots-row">
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/gocleanarch/gocleanarch-1.png" alt="Project Structure">
+                    <div class="screenshot-caption"><h4>Folder Structure</h4></div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="project-screenshoots/gocleanarch/gocleanarch-2.png" alt="API Testing">
+                    <div class="screenshot-caption"><h4>API Testing</h4></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Fauzan Nur Hidayat | <a href="https://personal.fznh-dev.my.id">personal.fznh-dev.my.id</a> | <a href="https://github.com/fauzan05">github.com/fauzan05</a></p>
+        </div>
+    </div>
+</body>
+</html>
